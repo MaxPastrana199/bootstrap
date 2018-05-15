@@ -1,0 +1,14 @@
+body{
+    background-color:#2f4050;
+}
+.col-sm-10{
+    background-color: #ffffff;
+}
+#side_menue a{
+    color: #9fb1c2;
+}
+#side_menue .active a{
+    color: #ffffff;
+    background-color: #27AAE1;
+    font-weight: bold;
+}
