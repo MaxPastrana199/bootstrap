@@ -15,7 +15,7 @@
 				
 				<div class="col-md-10">
 					<h2>Hier entsteht das Dashboard</h2>
-					<p>Lorem ipsum...</p>
+					<p>Lorem ipsum ...</p>
 				</div>
 
 			</div>
