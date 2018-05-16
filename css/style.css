@@ -4,6 +4,9 @@ body{
 .col-sm-10{
     background-color: #ffffff;
 }
+.side_menue{
+    color: #ffffff;
+}
 #side_menue a{
     color: #9fb1c2;
 }
@@ -11,4 +14,26 @@ body{
     color: #ffffff;
     background-color: #27AAE1;
     font-weight: bold;
+}
+#side_menue a:hover{
+    color: #ffffff;
+    background-color: #27AAE1;
+    font-weight: bold;
+}
+#footer{
+    padding: 10px;
+    color:#eeeeee;
+    background-color: #211f22;
+    text-align: center;
+}
+#footer ul{
+    display: inline-block;
+}
+#footer ul li{
+    float: left;
+    display: block;
+}
+#footer a{
+    color: white;
+    background-color: transparent; 
 }
