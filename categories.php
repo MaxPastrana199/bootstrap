@@ -5,12 +5,24 @@
 	if(isset($_POST["Absenden"])){
 		$category=$_POST["Category"];
 		$DateTime=datetime();
+		$admin="Max Schenke";
 		if(empty($category)){
 			$_SESSION["CategoryMessage"]="Bitte alle Felder ausfüllen";
 			$output=error_message();
+		}elseif(strlen($category)>199){
+			$_SESSION["CategoryMessage"]="Kategoriename darf nicht länger als 200 Zeichen sein. Aktuelle Länge: ".strlen($category)." Zeichen";
+			$output=error_message();		
 		}else{
-			$_SESSION["SuccessMessage"]="Kategorie erfolgreich angelegt";
-			$output=success_message();
+			global $connection;
+			$query="INSERT INTO category(datetime,name,creatorname) VALUES ('$DateTime','$category','$admin')";
+			$execute=mysqli_query($connection,$query);
+			if($execute){
+				$_SESSION["SuccessMessage"]="Kategorie erfolgreich angelegt";
+				$output=success_message();
+			}else{
+				$_SESSION["CategoryMessage"]="Something went wrong";
+			$output=error_message();
+			}
 		}
 	}
 ?>
@@ -56,6 +68,37 @@
 							<br/>
 						</form>
 						<div><?php echo @$output; ?></div>
+					</div>
+					<div class="table-responsive">
+						<table class="table table-striped">
+							<tr>
+								<th>ID</th>
+								<th>Date & Time</th>
+								<th>Category Name</th>
+								<th>Creator Name</th>
+							</tr>
+							<?php
+								global $connection;
+								$query="SELECT * FROM category";
+								$execute=mysqli_query($connection,$query);
+								$number=0;
+								while($data=mysqli_fetch_array($execute)){
+									$id=$data["id"];
+									$datetime=$data["datetime"];
+									$name=$data["name"];
+									$creator=$data["creatorname"];		
+									$number++;							
+							?>
+							<tr>
+								<td><?php echo $number; ?></td>
+								<td><?php echo $datetime; ?></td>
+								<td><?php echo $name; ?></td>
+								<td><?php echo $creator; ?></td>
+							</tr>
+							
+							<?php } ?> <!--end of while-loop-->
+							
+						</table>
 					</div>
 					
 				</div>

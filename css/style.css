@@ -21,10 +21,6 @@ body{
     font-weight: bold;
 }
 #footer{
-    position: fixed;
-    width: 100%;
-    bottom: 0;
-
     color:#eeeeee;
     background-color: #211f22;
     text-align: center;
