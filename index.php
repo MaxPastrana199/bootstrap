@@ -14,9 +14,9 @@
 				<div class="col-sm-2">
 					<h1 class="side_menue">Dashboard</h1>
 					<ul id="side_menue" class="nav nav-pills nav-stacked">
-						<li class="active"><a href="dashboard.php"><span class="glyphicon glyphicon-th"></span> Dashboard</a></li>
+						<li class="active"><a href="index.php"><i class="fas fa-th"></i> Dashboard</a></li>
 						<li><a href="#"><i class="fas fa-file-alt"></i> Add New Post</a></li>
-						<li><a href="#"><i class="fas fa-tags"></i> Categorie</a></li>
+						<li><a href="categories.php"><i class="fas fa-tags"></i> Categorie</a></li>
 						<li><a href="#"><i class="fas fa-user"></i> Manage Admins</a></li>
 						<li><a href="#"><i class="fas fa-comment"></i> Comments</a></li>
 						<li><a href="#"><i class="fas fa-desktop"></i> Live Blog</a></li>
@@ -39,17 +39,7 @@
 			</div>
 		</div>
 
-			<div id="footer">
-				<hr>
-				<p>Copyright by Max</p>
-				<ul id="footer" class="nav">
-					<li><a href="#">Impressum</a></li>
-					<li><a href="#">Datenschutz</a></li>
-				</ul>
-				<hr>
-				
-				
-			</div>
+<?php include("includes/footer.php");?>
 
 	
 	

@@ -21,7 +21,10 @@ body{
     font-weight: bold;
 }
 #footer{
-    padding: 10px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+
     color:#eeeeee;
     background-color: #211f22;
     text-align: center;
