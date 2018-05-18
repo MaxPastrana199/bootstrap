@@ -55,13 +55,17 @@
 				
 				<div class="col-sm-10">
 					<h1>Categories</h1>
-					<?php 	echo "Hinzugefügt am: ".@$DateTime; ?>
+					<?php 	if(isset($_POST["Absenden"])){
+						echo "Hinzugefügt am: ".@$DateTime;
+					}
+					?>
+						
 					<div>
 						<form action="categories.php" method="POST">
 							<fieldset>
 							<div class="form-group">								
-								<label for="categoryname">Name:</label>
-								<input class="form-control" type="text" name="Category" id="categoryname">
+
+								<input class="form-control" type="text" name="Category" placeholder="Kategorie Name" id="categoryname">
 							</div><br/>
 							<input class="btn btn-success btn-block" type="submit" name="Absenden" value="Neue Kategorie hinzufügen">
 							</fieldset>
@@ -79,7 +83,7 @@
 							</tr>
 							<?php
 								global $connection;
-								$query="SELECT * FROM category";
+								$query="SELECT * FROM category ORDER BY datetime desc";
 								$execute=mysqli_query($connection,$query);
 								$number=0;
 								while($data=mysqli_fetch_array($execute)){

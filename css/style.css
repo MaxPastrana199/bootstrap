@@ -21,6 +21,7 @@ body{
     font-weight: bold;
 }
 #footer{
+    padding: 10px;
     color:#eeeeee;
     background-color: #211f22;
     text-align: center;
