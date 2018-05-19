@@ -12,16 +12,7 @@
 		<div class="container-fluid">
 			<div class="row">			
 				<div class="col-sm-2">
-					<h1 class="side_menue">Dashboard</h1>
-					<ul id="side_menue" class="nav nav-pills nav-stacked">
-						<li class="active"><a href="index.php"><i class="fas fa-th"></i> Dashboard</a></li>
-						<li><a href="#"><i class="fas fa-file-alt"></i> Add New Post</a></li>
-						<li><a href="categories.php"><i class="fas fa-tags"></i> Categorie</a></li>
-						<li><a href="#"><i class="fas fa-user"></i> Manage Admins</a></li>
-						<li><a href="#"><i class="fas fa-comment"></i> Comments</a></li>
-						<li><a href="#"><i class="fas fa-desktop"></i> Live Blog</a></li>
-						<li><a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
-					</ul>
+					<?php include("includes/nav.php"); ?>
 				</div>								
 				<div class="col-sm-10">
 					<h1>Admin Dashboard</h1>
@@ -38,9 +29,10 @@
 				</div>
 			</div>
 		</div>
-
-<?php include("includes/footer.php");?>
-
+		
+		<!-- Footer -->
+		<?php include("includes/footer.php");?>
+	</body>
 	
 	
     <script src="js/jquery-3.3.1.min.js"></script>

@@ -14,7 +14,7 @@
 			$output=error_message();		
 		}else{
 			global $connection;
-			$query="INSERT INTO category(datetime,name,creatorname) VALUES ('$DateTime','$category','$admin')";
+			//$query="INSERT INTO category(datetime,name,creatorname) VALUES ('$DateTime','$category','$admin')";
 			$execute=mysqli_query($connection,$query);
 			if($execute){
 				$_SESSION["SuccessMessage"]="Kategorie erfolgreich angelegt";
@@ -37,68 +37,67 @@
 
 	</head>
 	<body>
-		<div class="container-fluid">
+		<div class="container-fluid">		<!-- Container über gesamte Seite -->
 			<div class="row">			
-				<div class="col-sm-2">
+				<div class="col-sm-2">		<!-- Navigation -->
 					<?php include("includes/nav.php"); ?>
-				</div>
+				</div>						
 				
 				
-				<div class="col-sm-10">
-					<h1>Categories</h1>
+				<div class="col-sm-10">		<!-- Inhalt -->
+					<h1>Add New Post</h1>
 					<?php 	if(isset($_POST["Absenden"])){
 						echo "Hinzugefügt am: ".@$DateTime;
 					}
 					?>
-						
+					
+					<!--Form start-->	
 					<div>
-						<form action="categories.php" method="POST">
+						<form action="add-new-post.php" method="POST">
 							<fieldset>
-							<div class="form-group">								
-
-								<input class="form-control" type="text" name="Category" placeholder="Kategorie Name" id="categoryname">
-							</div><br/>
-							<input class="btn btn-success btn-block" type="submit" name="Absenden" value="Neue Kategorie hinzufügen">
-							</fieldset>
-							<br/>
-						</form>
-						<div><?php echo @$output; ?></div>
-					</div>
-					<div class="table-responsive">
-						<table class="table table-striped">
-							<tr>
-								<th>ID</th>
-								<th>Date & Time</th>
-								<th>Category Name</th>
-								<th>Creator Name</th>
-							</tr>
-							<?php
+								
+							<div class="form-group">		<!-- Titel -->
+								<label for="title">Titel:</label>
+								<input class="form-control" type="text" name="Titel" placeholder="Titel" id="title">											
+							</div>
+							
+							<div class="form-group">		<!-- Kategorie -->
+								<label for="categoryselect">Kategorie:</label><br/>
+								<select class="form-control" id="categoryselect" name="Category">
+								<?php
 								global $connection;
-								$query="SELECT * FROM category ORDER BY datetime desc";
+								$query="SELECT * FROM category ORDER BY name asc";
 								$execute=mysqli_query($connection,$query);
-								$number=0;
 								while($data=mysqli_fetch_array($execute)){
 									$id=$data["id"];
-									$datetime=$data["datetime"];
-									$name=$data["name"];
-									$creator=$data["creatorname"];		
-									$number++;							
-							?>
-							<tr>
-								<td><?php echo $number; ?></td>
-								<td><?php echo $datetime; ?></td>
-								<td><?php echo $name; ?></td>
-								<td><?php echo $creator; ?></td>
-							</tr>
+									$name=$data["name"];								
+								?>
+								<option><?php  echo $name; ?></option>
+								<?php } ?>
+								</select>
+							</div>
+									
+							<div class="form-group">		<!-- Image -->
+								<label for="imageselect">Image:</label>
+								<input type="file" class="form-control" name="Image" id="imageselecet">
+							</div>
 							
-							<?php } ?> <!--end of while-loop-->
+							<div class="form-group">		<!-- Beitrag -->
+								<label for="postarea">Beitrag</label>
+								<textarea class="form-control" name="Post" id="postarea"></textarea>
+							</div>
 							
-						</table>
+								<input class="btn btn-success btn-block" type="submit" name="Posten" value="Beitrag veröffentlichen">
+							</fieldset><br/>
+							
+						</form>
 					</div>
+					<!--Form end-->
+
 					
-				</div>
-			</div>
-		</div>
+				</div>	<!-- Ende Inhalt -->
+			</div>		<!-- End row -->
+		</div>			<!-- End Container Fluid -->
 		<!-- Footer -->
 		<?php include("includes/footer.php"); ?>
 	</body>

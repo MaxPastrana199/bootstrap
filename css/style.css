@@ -7,6 +7,9 @@ body{
 .side_menue{
     color: #ffffff;
 }
+.nav{
+    margin-top: 2em;
+}
 #side_menue a{
     color: #9fb1c2;
 }
