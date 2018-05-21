@@ -1,3 +1,11 @@
+<?php
+	if(isset($_GET['pagename']) && $_GET['pagename'] != '')
+		$page = $_GET['pagename'];
+	else
+		$page = 'dashboard';
+	
+?>
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -14,21 +22,19 @@
 				<div class="col-sm-2">
 					<?php include("includes/nav.php"); ?>
 				</div>								
-				<div class="col-sm-10">
-					<h1>Admin Dashboard</h1>
-					<h2>Hier entsteht das Dashboard</h2>
-					<p>Lorem ipsum ...</p>
-					<h2>Hier entsteht das Dashboard</h2>
-					<p>Lorem ipsum ...</p>
-					<h2>Hier entsteht das Dashboard</h2>
-					<p>Lorem ipsum ...</p>
-					<h2>Hier entsteht das Dashboard</h2>
-					<p>Lorem ipsum ...</p>
-					<h2>Hier entsteht das Dashboard</h2>
-					<p>Lorem ipsum ...</p>
-				</div>
+				<?php if(file_exists('./content/' . $page . '.php')) {
+                            include('./content/' . $page . '.php');
+                        } elseif(file_exists('./content/' . $page . '.html')) {
+                            include('./content/' . $page . '.html');
+                        } else {
+                            include('./content/404.php');
+                        } ?>
 			</div>
 		</div>
+		
+
+		
+		
 		
 		<!-- Footer -->
 		<?php include("includes/footer.php");?>
