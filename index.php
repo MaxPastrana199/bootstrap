@@ -1,9 +1,9 @@
 <?php
-	if(isset($_GET['pagename']) && $_GET['pagename'] != '')
+	if(!empty($_GET['pagename'])){
 		$page = $_GET['pagename'];
-	else
+	}else{
 		$page = 'dashboard';
-	
+	}
 ?>
 
 <!DOCTYPE html>
@@ -24,11 +24,7 @@
 				</div>								
 				<?php if(file_exists('./content/' . $page . '.php')) {
                             include('./content/' . $page . '.php');
-                        } elseif(file_exists('./content/' . $page . '.html')) {
-                            include('./content/' . $page . '.html');
-                        } else {
-                            include('./content/404.php');
-                        } ?>
+                        }?>
 			</div>
 		</div>
 		
